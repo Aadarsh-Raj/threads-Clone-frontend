@@ -1,0 +1,25 @@
+.search-card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #2e2f2f;
+    padding: 0.8rem 2rem;
+}
+.search-card-left{
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+.search-card-name{
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+.profile-name-container p{
+    color:#565656;
+}
+
+.search-card-followers{
+    padding-left: 4rem;
+}
+

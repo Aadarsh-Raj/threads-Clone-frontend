@@ -1,0 +1,28 @@
+.search-container{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 0 1rem ;
+}
+.search-bar{
+background-color: black;
+display: flex;
+align-items: center;
+padding: 0.5rem 1rem;
+border-radius: 0.8rem;
+}
+
+.search-container input{
+    background-color: transparent;
+    font-weight: bolder;
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 1rem;
+
+}
+@media screen and (min-width:500px){
+    .search-container{
+        width: 50%;
+    }
+}

@@ -1,0 +1,10 @@
+.follow-btn{
+    border: 2px solid #252525;
+    padding: 0.8rem 1rem;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    background-color: black;
+}
+.follow-btn:hover{
+    background-color: rgba(101, 99, 99, 0.668);
+}

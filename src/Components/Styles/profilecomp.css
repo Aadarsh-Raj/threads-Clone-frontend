@@ -1,0 +1,39 @@
+.profile-container{
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.profile-upper-section{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.profile-name-photo-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-name-photo-container-left, .profile-followers-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.profile-name-photo-container-right{
+    width: 100px;
+}
+
+
+
+@media screen and (min-width: 500px)  {
+    .profile-container{
+        width: 50%;
+    }
+  }
+  
+
+
+

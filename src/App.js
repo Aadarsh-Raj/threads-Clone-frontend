@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import Header from "./Components/Header";
+import { StoreFunction } from "./Context/store";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import Home from "./Components/Home.jsx";
+import SignupComp from "./Components/SignupComp.jsx";
+import LoginComp from "./Components/LoginComp";
+import ErrorComp from "./Components/ErrorComp.jsx";
+import UserProfile from "./Components/UserProfile.jsx";
+import SearchComp from "./Components/SearchComp.jsx";
 function App() {
+  const { userToken } = StoreFunction();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="outer-main-div">
+        
+        <Router>
+          {userToken ? <Header /> : ""}
+          <Routes>
+            {userToken && (
+              <>
+                <Route path="/" element={<Home />} />
+                <Route path="/userprofile" element={<UserProfile />} />
+                <Route path="/search" element={<SearchComp />} />
+                <Route path="/login" element={<Home />} />
+                <Route path="*" element={<ErrorComp />} />
+              </>
+            )}
+
+            {!userToken && (
+              <>
+                <Route path="/" element={<LoginComp />} />
+                <Route path="/login" element={<LoginComp />} />
+                <Route path="/signup" element={<SignupComp />} />
+                <Route path="*" element={<ErrorComp />} />
+              </>
+            )}
+          </Routes>
+        </Router>
+      </div>
+    </>
   );
 }
 

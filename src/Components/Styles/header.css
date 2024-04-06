@@ -1,0 +1,77 @@
+.header {
+  display: flex;
+  padding: 0.8rem 1.2rem;
+  justify-content: space-between;
+  gap: 4rem;
+  align-items: center;
+}
+
+.header-logo {
+  text-align: center;
+  padding: 0.7rem 0;
+  max-width: 5rem;
+}
+.header-logo svg {
+  width: 40%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 1rem;
+  background-color: rgba(0, 0, 0, 0.218);
+}
+.navbar .nav-item {
+  cursor: pointer;
+  text-align: center;
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.8rem;
+}
+.navbar .nav-item:hover,
+.header-settings:hover {
+  background-color: #4d4d4d12;
+}
+.navbar svg {
+  width: 20px;
+}
+.navbar svg path,
+.header-settings svg path {
+  fill: #4d4d4d;
+  stroke: #4d4d4d;
+}
+.header-settings {
+  padding: 0.25rem 0;
+  cursor: pointer;
+  max-width: 40px;
+  text-align: center;
+}
+@media screen and (min-width: 500px) {
+  .header {
+    padding: 0.8rem 13rem;
+    justify-content: center;
+  }
+  .navbar {
+    position: unset;
+    background-color: transparent;
+    gap: 0.1rem;
+    padding: 0 13rem;
+  }
+  .navbar svg {
+    width: 1.25rem;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 1000px) {
+  .header {
+    padding: 0.8rem 1rem;
+  }
+  .navbar {
+    padding: 0;
+  }
+}
