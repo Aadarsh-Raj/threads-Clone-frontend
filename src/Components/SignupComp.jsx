@@ -1,12 +1,66 @@
-import React from 'react';
+import React from "react";
 import "./Styles/logincomp.css";
-import { Link } from 'react-router-dom';
-import Footer from './Footer';
-import LoginComp from './LoginComp';
+import { Link, useNavigate } from "react-router-dom";
+import Footer from "./Footer";
+import { StoreFunction } from "../Context/store";
+import LoginComp from "./LoginComp";
 const SignupComp = () => {
+  const navigate = useNavigate();
+  const { userToken, setUserToken, apiUrl } = StoreFunction();
+
+  const signupUser = async (e) => {
+    e.preventDefault();
+    const email = e.target.children[0].value;
+    const fullName = e.target.children[1].value;
+    const userName = e.target.children[2].value;
+    const password = e.target.children[3].value;
+    const signupUrl = apiUrl + "user/register";
+    const loginUrl = apiUrl + "user/login";
+    try {
+      const response = await fetch(signupUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          fullName: fullName,
+          userName: userName,
+          password: password,
+        }),
+      });
+      if (!response.ok) {
+        console.log("Something went wrong");
+        return;
+      }
+      const data = await response.json();
+
+      const loginResponse = await fetch(loginUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userId: email, password: password }),
+      });
+      const loginData = await loginResponse.json();
+      if (loginData) {
+        console.log("working");
+        localStorage.setItem("token", loginData.token);
+        setUserToken(loginData.token);
+          navigate("/userprofile");
+      } else {
+        // will show error popup
+        console.log("Not working");
+        navigate("/login");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
-        <div className="login-outer-container">
+      <div className="login-outer-container">
         <div className="login-container">
           <div className="login-logo-container">
             <svg
@@ -23,22 +77,25 @@ const SignupComp = () => {
             </svg>
           </div>
           <div>Sign Up Here</div>
-          <form action="">
+          <form onSubmit={signupUser}>
             <input type="email" placeholder="Email" />
-            <input type="text" placeholder='Full Name'/>
-            <input type="text" placeholder='Username'/>
+            <input type="text" placeholder="Full Name" />
+            <input type="text" placeholder="Username" />
             <input type="password" placeholder="Password" />
             <input type="submit" />
           </form>
           <div className="login-forget-container">Forgot password?</div>
-          <div className="login-signup-container">Have an account <span><Link to={"/login"}>Click here</Link>  </span></div>
+          <div className="login-signup-container">
+            Have an account{" "}
+            <span>
+              <Link to={"/login"}>Click here</Link>{" "}
+            </span>
+          </div>
         </div>
         <Footer />
       </div>
-    
-    
     </>
-  )
-}
+  );
+};
 
-export default SignupComp
+export default SignupComp;

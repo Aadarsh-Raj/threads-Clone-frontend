@@ -50,6 +50,21 @@
   cursor: pointer;
   max-width: 40px;
   text-align: center;
+  position: relative;
+}
+
+.logout-container{
+  position: absolute;
+  width: max-content;
+  background: linear-gradient(to bottom, #101010, #181818);
+  padding: 1rem;
+  left: -2.625rem;
+  top: 1.875rem;
+  border-radius: 0 0 0.8rem 0.8rem;
+  display: none;
+}
+.header-settings:hover .logout-container{
+  display: initial;
 }
 @media screen and (min-width: 500px) {
   .header {

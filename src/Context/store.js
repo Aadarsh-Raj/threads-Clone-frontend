@@ -11,7 +11,7 @@ const StoreContext = (props) => {
   // create states
   const [loginComp, setLoginComponent] = useState(<LoginComp />);
   const [searchSuggestion, setSearchSuggestion] = useState([]);
-  const [userToken, setUserTocken] = useState("");
+  const [userToken, setUserToken] = useState("");
   const [loadSearchComp, setLoadSearchComp] = useState(false);
   const [userProfile, setUserProfile] = useState([]);
   const [apiUrl, setApiUrl] = useState("http://localhost:4000/api/");
@@ -19,19 +19,16 @@ const StoreContext = (props) => {
   useEffect(() => {
     const tokenFromStorage = localStorage.getItem("token");
     if (tokenFromStorage) {
-      setUserTocken(tokenFromStorage);
+      setUserToken(tokenFromStorage);
     }
   }, []);
 
-  const handleLogout = () => {
-    setUserTocken("");
-    localStorage.removeItem("token");
-  };
+  
   const functionObject = {
     userToken,
     apiUrl,
+    setUserToken,
     loginComp,
-    handleLogout,
     userProfile,
     setUserProfile,
     searchSuggestion, 

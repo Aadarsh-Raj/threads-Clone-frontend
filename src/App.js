@@ -8,6 +8,7 @@ import LoginComp from "./Components/LoginComp";
 import ErrorComp from "./Components/ErrorComp.jsx";
 import UserProfile from "./Components/UserProfile.jsx";
 import SearchComp from "./Components/SearchComp.jsx";
+import CreateThreads from "./Components/CreateThreads.jsx";
 function App() {
   const { userToken } = StoreFunction();
 
@@ -25,6 +26,11 @@ function App() {
                 <Route path="/search" element={<SearchComp />} />
                 <Route path="/login" element={<Home />} />
                 <Route path="*" element={<ErrorComp />} />
+                <Route path="/createthreads" element={<CreateThreads />} />
+                <Route path="/user/:userName" element={<UserProfile />} />
+                <Route path="/userownprofile" element={<UserProfile />} />
+                <Route path="/logout" element={<Home />} />
+
               </>
             )}
 

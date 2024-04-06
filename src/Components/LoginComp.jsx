@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { StoreFunction } from "../Context/store";
 import Footer from "./Footer";
 const LoginComp = () => {
-  const { apiUrl } = StoreFunction();
+  const { apiUrl, userToken, setUserToken } = StoreFunction();
   const navigate = useNavigate();
   const fetchUser = async (userId, password) => {
     const loginUrl = apiUrl + "user/login";
@@ -20,15 +20,20 @@ const LoginComp = () => {
         },
         body: JSON.stringify(userDetails),
       });
+      
       if (response.ok) {
         const data = await response.json();
-        console.log(response, data);
         localStorage.setItem("token", data.token);
-        navigate("/");
+        setUserToken(data.token);
+        console.log(userToken);
+        if(userToken){
+          navigate("/userprofile");
+
+        }
+
       } else {
         // will show error popup
         navigate("/login");
-        console.log("Arya");
       }
     } catch (error) {
       console.log(error, "login error");
