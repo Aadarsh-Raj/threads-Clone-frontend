@@ -19,7 +19,7 @@ const StoreContext = (props) => {
   const [userToken, setUserToken] = useState(""); 
   const [loadSearchComp, setLoadSearchComp] = useState(false);
   const [userProfile, setUserProfile] = useState([]);
-  const [apiUrl, setApiUrl] = useState("http://localhost:4000/api/");
+  const [apiUrl, setApiUrl] = useState("https://threads-clone-backend-hq4g.onrender.com/api/");
   // logic for states updation
   useEffect(() => {
     const tokenFromStorage = localStorage.getItem("token");
