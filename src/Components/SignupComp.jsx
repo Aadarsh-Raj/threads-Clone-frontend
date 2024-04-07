@@ -6,7 +6,7 @@ import { StoreFunction } from "../Context/store";
 import LoginComp from "./LoginComp";
 const SignupComp = () => {
   const navigate = useNavigate();
-  const { userToken, setUserToken, apiUrl } = StoreFunction();
+  const { setUserName, setUserToken, apiUrl } = StoreFunction();
 
   const signupUser = async (e) => {
     e.preventDefault();
@@ -47,6 +47,7 @@ const SignupComp = () => {
         console.log("working");
         localStorage.setItem("token", loginData.token);
         setUserToken(loginData.token);
+        setUserName(loginData.userName);
           navigate("/userprofile");
       } else {
         // will show error popup

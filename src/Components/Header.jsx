@@ -5,8 +5,10 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const navigate = useNavigate();
-  const { userToken, setUserToken, apiUrl } = StoreFunction();
-  
+  const { userToken, setUserToken, apiUrl, setShowThreadForm } = StoreFunction();
+  function displayThreadForm(){
+    setShowThreadForm(true);
+  }
 
   const logoutUser = async () => {
     const logoutUrl= apiUrl + "user/logout";
@@ -84,8 +86,7 @@ const Header = () => {
             </div>
           </Link>
 
-          <Link to={"/createthreads"}>
-            <div className="nav-item" title="Create">
+            <div className="nav-item" title="Create" onClick={displayThreadForm}>
               <svg
                 aria-label="Create"
                 role="img"
@@ -104,7 +105,6 @@ const Header = () => {
                 ></path>
               </svg>
             </div>
-          </Link>
 
           <div className="nav-item" title="Notifications">
             <svg
@@ -121,7 +121,7 @@ const Header = () => {
             </svg>
           </div>
 
-          <Link to="/userownprofile">
+          <Link to="/userprofile">
             <div className="nav-item" title="User Profile">
               <svg
                 aria-label="Profile"

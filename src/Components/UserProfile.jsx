@@ -3,7 +3,7 @@ import { StoreFunction } from "../Context/store";
 import { useParams } from "react-router-dom";
 import ProfileComp from "./ProfileComp";
 const UserProfile = () => {
-  const { userToken, setUserToken, apiUrl, setUserProfile, userProfile } =
+  const { userToken, apiUrl, setUserProfile, userProfile } =
     StoreFunction();
   const { userName } = useParams();
 

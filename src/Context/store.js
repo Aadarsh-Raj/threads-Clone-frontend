@@ -11,6 +11,8 @@ const StoreContext = (props) => {
   // create states
   const [loginComp, setLoginComponent] = useState(<LoginComp />);
   const [searchSuggestion, setSearchSuggestion] = useState([]);
+  const [userName, setUserName] = useState("User");
+  const [showThreadForm, setShowThreadForm] = useState(false);
   const [userToken, setUserToken] = useState("");
   const [loadSearchComp, setLoadSearchComp] = useState(false);
   const [userProfile, setUserProfile] = useState([]);
@@ -29,12 +31,16 @@ const StoreContext = (props) => {
     apiUrl,
     setUserToken,
     loginComp,
+    userName,
+    setUserName,
     userProfile,
     setUserProfile,
     searchSuggestion, 
     setSearchSuggestion,
     loadSearchComp,
-    setLoadSearchComp
+    setLoadSearchComp,
+    showThreadForm, 
+    setShowThreadForm
   };
 
   return (
