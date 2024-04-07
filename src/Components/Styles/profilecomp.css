@@ -32,6 +32,14 @@
     gap: 1rem;
 
 }
+.followers-btn{
+    cursor: pointer;
+    color: gray;
+    width: max-content;
+}
+.followers-btn:hover{
+    text-decoration: underline;
+}
 .profile-posts-option-container{
     display: flex;
     justify-content: center;

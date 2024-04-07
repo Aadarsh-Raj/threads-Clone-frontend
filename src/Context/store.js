@@ -13,11 +13,13 @@ const StoreContext = (props) => {
   const [searchSuggestion, setSearchSuggestion] = useState([]);
   const [userName, setUserName] = useState("User");
   const [showUpdateProfile, setShowUpdateProfile] = useState(false);
+  const [followersData, setFollowersData] = useState([]);
   const [showThreadForm, setShowThreadForm] = useState(false);
-  const [userToken, setUserToken] = useState("");
+  const [showFollowers, setShowFollowers] = useState(false)
+  const [userToken, setUserToken] = useState(""); 
   const [loadSearchComp, setLoadSearchComp] = useState(false);
   const [userProfile, setUserProfile] = useState([]);
-  const [apiUrl, setApiUrl] = useState("https://threads-clone-backend-hq4g.onrender.com/api/");
+  const [apiUrl, setApiUrl] = useState("http://localhost:4000/api/");
   // logic for states updation
   useEffect(() => {
     const tokenFromStorage = localStorage.getItem("token");
@@ -43,7 +45,11 @@ const StoreContext = (props) => {
     showThreadForm, 
     setShowThreadForm,
     showUpdateProfile,
-    setShowUpdateProfile
+    setShowUpdateProfile,
+    showFollowers,
+    setShowFollowers,
+    followersData, 
+    setFollowersData
   };
 
   return (

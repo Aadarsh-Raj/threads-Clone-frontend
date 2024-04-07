@@ -7,7 +7,7 @@ const ThreadsBlog = () => {
   return (
     <>
     
-    See all blogs here
+    Server Down for threads and posts
     
     </>
   )
