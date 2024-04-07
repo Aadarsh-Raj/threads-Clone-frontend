@@ -1,0 +1,20 @@
+.profile-update-form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    justify-content: space-between;
+}
+.profile-update-form input{
+    background-color: transparent;
+    padding: 0.9rem;
+    outline: none;
+    border: none;
+}
+.profile-update-form input:last-child{
+    border: 2px solid;
+    padding: 0.4rem 0.6rem;
+    border-radius: 0.6rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
